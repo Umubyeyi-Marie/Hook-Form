@@ -2,13 +2,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-// Define validation schema
+
 const formSchema = z.object({
     username: z.string().min(4, "Username should be at least four characters"),
     email: z.string().email("Email is not valid"),
     age: z.number().min(18, "You must be 18 or older"),
 });
-// Main component
+
 function ZodInput() {
     const form = useForm({
         resolver: zodResolver(formSchema),
